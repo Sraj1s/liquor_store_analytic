@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "liquor-store-analytics"
+version = "1.0.0"
+description = "Reproducible synthetic retail data pipeline and inventory analytics"
+requires-python = ">=3.12"
+dependencies = ["SQLAlchemy>=2.0,<2.1", "PyMySQL>=1.1,<2", "cryptography>=43", "pandas>=2.2,<3", "plotly>=5.24,<7", "streamlit>=1.52,<2", "python-dotenv>=1,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.12,<1"]
+
+[project.scripts]
+liquor = "liquor.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
