@@ -1,5 +1,7 @@
 # Liquor Store Sales & Inventory Analytics
 
+[![Pipeline and dashboard tests](https://github.com/Sraj1s/liquor_store_analytic/actions/workflows/tests.yml/badge.svg)](https://github.com/Sraj1s/liquor_store_analytic/actions/workflows/tests.yml)
+
 An end-to-end retail portfolio project: reproducible synthetic data, a validated Python/MySQL batch pipeline, SQL analytics, and an interactive Streamlit dashboard.
 
 **Business question:** Which products generate gross profit, when is the store busiest, and where should the owner replenish or reduce inventory?
@@ -18,6 +20,10 @@ An end-to-end retail portfolio project: reproducible synthetic data, a validated
 | Reproducible data generation and automated tests | Filters and downloadable underlying records |
 
 **Stack:** Python 3.12+, MySQL 8.0.16+, SQLAlchemy, pandas, Plotly, Streamlit, pytest. SQLite is included for a zero-server demo. Python 3.12 is the reference runtime.
+
+![Sales dashboard showing synthetic sales and gross profit](docs/dashboard-sales.png)
+
+[Inventory preview](docs/dashboard-inventory.png) · [Pipeline health preview](docs/dashboard-pipeline.png) · [Mobile preview](docs/dashboard-mobile.png)
 
 ## Quick start: run the demo on your Mac
 

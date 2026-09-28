@@ -19,4 +19,13 @@ The workflow in `.github/workflows/tests.yml` provisions MySQL 8.0, installs loc
 
 See [the repository Actions page](https://github.com/Sraj1s/liquor_store_analytic/actions) for current run status and logs. Screenshots and log artifacts have a 14-day retention window. This document records observed results; adding a workflow alone does not establish a passing run.
 
-The first GitHub Actions run completed successfully: **10 tests passed**, including live MySQL, on commit `9f8311b51463eb81b2b888a62b11ebbf86e6e3bb`. A later regression test adds coverage for malformed CSV rows with extra fields. Final verification follows the current workflow run.
+## Final observed CI result
+
+[Run 36476642172](https://github.com/Sraj1s/liquor_store_analytic/actions/runs/36476642172) completed successfully on code commit `27c32c8730342e463df7eb4c08144bed9b0b9cff`:
+
+- **11 tests passed**, including the live MySQL 8.0 integration and malformed-CSV regression.
+- Lint and formatting checks passed.
+- Chromium smoke test passed: chart rendering, all three tabs, and sales CSV download.
+- Desktop and mobile screenshots were captured. The repository previews were visually reviewed from the preceding successful browser run; the final run used the same dashboard code.
+
+Only documentation and captured screenshots were added after this tested code commit. Your Mac's particular MySQL installation and credentials still need the local connection steps in the README; CI does not configure your computer.
