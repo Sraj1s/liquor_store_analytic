@@ -141,3 +141,15 @@ def test_reproducible_generation(tmp_path):
         assert path.read_bytes() == (tmp_path / "b" / path.name).read_bytes()
     with pytest.raises(ValueError, match="not empty"):
         generate(tmp_path / "a", days=3)
+
+
+def test_extra_csv_field_is_quarantined(engine, tmp_path):
+    folder = tmp_path / "extra_field"
+    generate(folder, days=3)
+    path = folder / "sale_items.csv"
+    lines = path.read_text().splitlines()
+    lines[1] += ",unexpected"
+    path.write_text("\n".join(lines) + "\n")
+    result = ingest(engine, folder)
+    assert result["status"] == "success"
+    assert result["rejected_rows"] == 4

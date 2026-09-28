@@ -5,7 +5,7 @@
 - Python 3.12, dependency environment installed from the project metadata.
 - `ruff check src dashboard tests`: passed.
 - `ruff format --check src dashboard tests`: passed.
-- `python -m pytest -q`: **9 passed, 1 skipped**. The skipped test requires a live MySQL server; SQLite and Streamlit AppTest passed.
+- `python -m pytest -q`: **10 passed, 1 skipped**. The skipped test requires a live MySQL server; SQLite and Streamlit AppTest passed.
 - Six-month CLI load: **26,292 input rows, 26,284 inserts, five duplicates, three rejects**.
 - Identical batch replay: **skipped**, no business records added.
 - Extended 184-day export: **110 new records**, 26,289 duplicate records, three rejects. Existing data remained unchanged.
@@ -18,3 +18,5 @@ A local graphical browser could not launch because this execution environment de
 The workflow in `.github/workflows/tests.yml` provisions MySQL 8.0, installs locked dependencies, runs lint/format checks and the entire test suite including the live MySQL test. It then opens the dashboard in Chromium, verifies the three tabs and a CSV download, and saves desktop/mobile screenshots as `dashboard-verification` artifacts.
 
 See [the repository Actions page](https://github.com/Sraj1s/liquor_store_analytic/actions) for current run status and logs. Screenshots and log artifacts have a 14-day retention window. This document records observed results; adding a workflow alone does not establish a passing run.
+
+The first GitHub Actions run completed successfully: **10 tests passed**, including live MySQL, on commit `9f8311b51463eb81b2b888a62b11ebbf86e6e3bb`. A later regression test adds coverage for malformed CSV rows with extra fields. Final verification follows the current workflow run.

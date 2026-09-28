@@ -91,6 +91,8 @@ Existing identical IDs are counted as duplicates; only new IDs are inserted. Thi
 
 The base dataset uses seed 42 and March 1–August 30, 2026: 100 products, five suppliers, 8,430 receipts and 16,926 valid sale items. Its exports intentionally include five repeated sale items and three invalid rows (unknown product, negative quantity and excessive discount). The first load reads 26,292 rows across five files: **26,284 inserted, five duplicates and three rejected**.
 
+Read [computed results from the default dataset](docs/demo-results.md) for a reproducible example of the analysis.
+
 ## Architecture and design
 
 The generator creates simulated POS and inventory CSV exports. The pipeline preserves raw rows, cleans and validates them, then stores them in normalized MySQL tables. Analytics are queried from those tables; daily inventory is derived from movements minus sales. See [architecture and data contracts](docs/architecture.md).

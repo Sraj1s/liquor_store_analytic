@@ -186,7 +186,7 @@ def ingest(engine, folder):
                             run_id=run_id,
                             source_table=table.name,
                             row_number=number,
-                            payload=json.dumps(payload, sort_keys=True),
+                            payload=json.dumps(payload),
                             disposition=disposition,
                             reason=reason,
                         )
